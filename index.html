@@ -1,0 +1,691 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>AfroIndie Founder — Register</title>
+<meta name="description" content="Register for AfroIndie Founder: a 3-day hands-on virtual experiment for indie builders. Sept 18–20, 2026 · 44 slots only." />
+<meta name="theme-color" content="#14110f" />
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --cream: #fff4e8;
+    --black: #14110f;
+    --orange-1: #ffb15c;
+    --orange-2: #f2660c;
+    --orange-3: #e04e0a;
+    --red: #ef4136;
+    --white: #ffffff;
+    --ink: #1c1712;
+    --ink-soft: #7a6f65;
+    --line: rgba(20, 17, 15, 0.1);
+    --font-display: "Fredoka", ui-rounded, "Segoe UI", sans-serif;
+    --font-body: "Poppins", "Segoe UI", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    margin: 0;
+    background: var(--black);
+    overscroll-behavior: none;
+  }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    overflow: hidden;
+  }
+
+  button { font-family: inherit; }
+
+  .page {
+    height: 100svh;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(280px, 38%) 1fr;
+  }
+
+  /* ---------- Brand panel ---------- */
+
+  .brand {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(120% 90% at 10% -10%, rgba(242, 102, 12, 0.35) 0%, rgba(242, 102, 12, 0) 55%),
+      radial-gradient(100% 80% at 100% 110%, rgba(242, 102, 12, 0.2) 0%, rgba(242, 102, 12, 0) 55%),
+      var(--black);
+    color: var(--cream);
+    padding: clamp(20px, 4.5vh, 52px) clamp(24px, 3.5vw, 52px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: clamp(16px, 2.6vh, 28px);
+  }
+
+  .brand-deco {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.9;
+  }
+  .brand-deco svg { position: absolute; }
+  .deco-rocket { top: 6%; left: 8%; width: clamp(46px, 6vw, 76px); animation: float 6s ease-in-out infinite; }
+  .deco-star-1 { top: 16%; left: 42%; width: 14px; opacity: 0.7; animation: twinkle 3.2s ease-in-out infinite; }
+  .deco-star-2 { bottom: 30%; left: 10%; width: 10px; opacity: 0.5; animation: twinkle 4s ease-in-out infinite 0.6s; }
+  .deco-bolt { top: 10%; right: 8%; width: clamp(30px, 4vw, 44px); animation: flicker 5s ease-in-out infinite; }
+
+  @keyframes float { 0%, 100% { transform: translateY(0) rotate(-8deg); } 50% { transform: translateY(-10px) rotate(-4deg); } }
+  @keyframes twinkle { 0%, 100% { opacity: 0.25; transform: scale(0.85); } 50% { opacity: 0.85; transform: scale(1); } }
+  @keyframes flicker { 0%, 100% { opacity: 0.7; } 45% { opacity: 1; } 55% { opacity: 0.4; } }
+
+  .kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: clamp(11px, 1vw, 13px);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--orange-1);
+  }
+  .kicker::before {
+    content: "";
+    width: 18px;
+    height: 2px;
+    background: var(--orange-1);
+    border-radius: 2px;
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-weight: 700;
+    line-height: 0.92;
+    font-size: clamp(34px, 5.6vw, 64px);
+    text-transform: uppercase;
+    margin: 0;
+    background: linear-gradient(180deg, var(--orange-1) 0%, var(--orange-3) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: 0.01em;
+  }
+
+  .tagline {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: clamp(13px, 1.5vw, 17px);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--cream);
+    margin: 0;
+  }
+
+  .theme-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    width: fit-content;
+    padding: clamp(6px, 1vh, 9px) clamp(12px, 1.6vw, 16px);
+    border-radius: 999px;
+    background: linear-gradient(135deg, var(--orange-2), var(--orange-3));
+    color: var(--white);
+    font-weight: 600;
+    font-size: clamp(12px, 1vw, 14px);
+    box-shadow: 0 8px 20px rgba(224, 78, 10, 0.35);
+  }
+  .theme-pill b { font-family: var(--font-display); font-weight: 600; }
+
+  .facts {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(6px, 1vh, 10px);
+    padding-top: clamp(4px, 1vh, 10px);
+    border-top: 1px solid rgba(255, 244, 232, 0.14);
+  }
+  .fact {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: clamp(12.5px, 1.05vw, 14.5px);
+    color: var(--cream);
+    opacity: 0.92;
+  }
+  .fact svg { flex: none; width: 16px; height: 16px; color: var(--orange-1); }
+  .fact b { font-weight: 700; }
+
+  .proof-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: clamp(11.5px, 0.95vw, 13px);
+    color: rgba(255, 244, 232, 0.72);
+    font-style: italic;
+    line-height: 1.4;
+    max-width: 34ch;
+  }
+  .proof-note svg { flex: none; width: 14px; height: 14px; margin-top: 2px; color: var(--red); }
+
+  /* ---------- Form panel ---------- */
+
+  .form-wrap {
+    position: relative;
+    min-height: 0;
+    background: var(--cream);
+    padding: clamp(18px, 4vh, 44px) clamp(22px, 4.5vw, 64px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .form-card {
+    width: 100%;
+    max-width: 620px;
+    margin: 0 auto;
+    max-height: 100%;
+    min-height: 0;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    padding-right: 2px;
+  }
+
+  .form-head { margin-bottom: clamp(12px, 2.2vh, 20px); }
+  .form-head h1 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: clamp(22px, 2.6vw, 30px);
+    margin: 0 0 4px;
+    color: var(--ink);
+  }
+  .form-head h1 span {
+    background: linear-gradient(135deg, var(--orange-2), var(--orange-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .form-head p {
+    margin: 0;
+    color: var(--ink-soft);
+    font-size: clamp(13px, 1.1vw, 15px);
+  }
+
+  form { display: flex; flex-direction: column; gap: clamp(10px, 1.8vh, 16px); }
+
+  .row2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(10px, 1.5vw, 16px);
+  }
+
+  .field { display: flex; flex-direction: column; gap: 6px; }
+  .field label {
+    font-size: clamp(12px, 1vw, 13.5px);
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .field label .opt {
+    font-weight: 400;
+    color: var(--ink-soft);
+    font-size: 0.9em;
+  }
+  .field label .req { color: var(--orange-3); }
+
+  input[type="text"],
+  input[type="email"],
+  textarea {
+    width: 100%;
+    font-family: var(--font-body);
+    font-size: clamp(13.5px, 1.1vw, 15px);
+    padding: clamp(9px, 1.4vh, 12px) 13px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    color: var(--ink);
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input::placeholder, textarea::placeholder { color: #b6aca2; }
+  input:focus, textarea:focus {
+    border-color: var(--orange-2);
+    box-shadow: 0 0 0 4px rgba(242, 102, 12, 0.14);
+  }
+  textarea { resize: none; min-height: clamp(46px, 7vh, 66px); line-height: 1.4; }
+
+  .chip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+  .chip {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    border-radius: 10px;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .chip .box {
+    flex: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 5px;
+    border: 1.5px solid #cfc4b8;
+    background: var(--white);
+    display: grid;
+    place-items: center;
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+  .chip .box svg { width: 10px; height: 10px; opacity: 0; transform: scale(0.6); transition: opacity 0.12s ease, transform 0.12s ease; color: var(--white); }
+  .chip span.txt { font-size: clamp(11.5px, 0.95vw, 13px); font-weight: 500; color: var(--ink); line-height: 1.25; }
+  .chip:has(input:checked) { border-color: var(--orange-2); background: rgba(242, 102, 12, 0.06); }
+  .chip:has(input:checked) .box { background: var(--orange-2); border-color: var(--orange-2); }
+  .chip:has(input:checked) .box svg { opacity: 1; transform: scale(1); }
+  .chip:has(input:focus-visible) { outline: 2px solid var(--orange-2); outline-offset: 2px; }
+
+  .yesno { display: flex; gap: 10px; }
+  .yn-opt {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    padding: clamp(8px, 1.3vh, 11px) 10px;
+    border-radius: 12px;
+    border: 1.5px solid var(--line);
+    background: var(--white);
+    font-weight: 700;
+    font-size: clamp(13px, 1.05vw, 14.5px);
+    color: var(--ink);
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+  .yn-opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .yn-opt.yes:has(input:checked) {
+    background: linear-gradient(135deg, var(--orange-2), var(--red));
+    border-color: transparent;
+    color: var(--white);
+    box-shadow: 0 8px 18px rgba(239, 65, 54, 0.3);
+    transform: translateY(-1px);
+  }
+  .yn-opt.no:has(input:checked) {
+    background: var(--black);
+    border-color: var(--black);
+    color: var(--cream);
+  }
+  .yn-opt:has(input:focus-visible) { outline: 2px solid var(--orange-2); outline-offset: 2px; }
+
+  .hp { position: absolute; left: -9999px; top: -9999px; opacity: 0; height: 0; width: 0; overflow: hidden; }
+
+  .submit-row { display: flex; flex-direction: column; gap: 8px; margin-top: 2px; }
+  .submit-btn {
+    appearance: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: clamp(12px, 1.8vh, 15px) 20px;
+    font-family: var(--font-body);
+    font-weight: 700;
+    font-size: clamp(14.5px, 1.15vw, 16px);
+    color: var(--white);
+    background: linear-gradient(135deg, var(--orange-1), var(--orange-2) 55%, var(--orange-3));
+    box-shadow: 0 14px 30px rgba(224, 78, 10, 0.32);
+    transition: transform 0.15s ease, box-shadow 0.15s ease, opacity 0.15s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+  .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 34px rgba(224, 78, 10, 0.4); }
+  .submit-btn:active { transform: translateY(0); }
+  .submit-btn:disabled { opacity: 0.7; cursor: default; transform: none; }
+  .submit-btn svg { width: 16px; height: 16px; transition: transform 0.15s ease; }
+  .submit-btn:hover svg { transform: translateX(3px); }
+
+  .microcopy {
+    text-align: center;
+    font-size: clamp(10.5px, 0.85vw, 12px);
+    color: var(--ink-soft);
+  }
+
+  /* ---------- Success state ---------- */
+
+  .success {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    max-width: 620px;
+    margin: 0 auto;
+  }
+  .success.is-visible { display: flex; animation: pop 0.35s ease; }
+  @keyframes pop { from { opacity: 0; transform: translateY(8px) scale(0.98); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+  .success-badge {
+    width: clamp(48px, 6vh, 60px);
+    height: clamp(48px, 6vh, 60px);
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange-2), var(--red));
+    display: grid;
+    place-items: center;
+    color: var(--white);
+    box-shadow: 0 12px 26px rgba(224, 78, 10, 0.35);
+  }
+  .success-badge svg { width: 26px; height: 26px; }
+  .success h2 {
+    font-family: var(--font-body);
+    font-weight: 800;
+    font-size: clamp(22px, 2.6vw, 30px);
+    margin: 0;
+    color: var(--ink);
+  }
+  .success h2 span {
+    background: linear-gradient(135deg, var(--orange-2), var(--orange-3));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .success p { margin: 0; color: var(--ink-soft); font-size: clamp(13.5px, 1.1vw, 15.5px); line-height: 1.55; max-width: 46ch; }
+  .success .again {
+    margin-top: 6px;
+    background: none;
+    border: none;
+    color: var(--orange-3);
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+  }
+
+  .form-card.is-hidden { display: none; }
+
+  /* ---------- Mobile ---------- */
+
+  @media (max-width: 860px) {
+    .page {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto 1fr;
+      height: 100svh;
+      height: 100vh;
+    }
+    .brand {
+      padding: 16px 20px 14px;
+      gap: 8px;
+    }
+    .brand-deco { display: none; }
+    .wordmark { font-size: clamp(26px, 9vw, 36px); line-height: 0.95; }
+    .tagline { font-size: 12px; }
+    .theme-pill { padding: 5px 12px; font-size: 11.5px; }
+    .facts { flex-direction: row; flex-wrap: wrap; gap: 6px 14px; border-top: none; padding-top: 0; }
+    .fact { font-size: 11.5px; }
+    .proof-note { display: none; }
+    .form-wrap { padding: 14px 20px 16px; }
+    .form-head { margin-bottom: 10px; }
+    form { gap: 8px; }
+    .row2 { grid-template-columns: 1fr; gap: 8px; }
+    .chip-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 420px) {
+    .chip-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .deco-rocket, .deco-star-1, .deco-star-2, .deco-bolt { animation: none; }
+  }
+</style>
+</head>
+<body>
+  <div class="page">
+    <!-- Brand panel -->
+    <section class="brand" aria-hidden="false">
+      <div class="brand-deco" aria-hidden="true">
+        <svg class="deco-rocket" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M32 4c8 6 12 16 12 26 0 4-1 8-2 11l-10 5-10-5c-1-3-2-7-2-11 0-10 4-20 12-26z" fill="currentColor" style="color:var(--orange-1)"/>
+          <circle cx="32" cy="26" r="5" fill="var(--black)"/>
+          <path d="M22 30c-5 2-8 7-9 13 6-1 10-3 13-7z" fill="var(--orange-2)"/>
+          <path d="M42 30c5 2 8 7 9 13-6-1-10-3-13-7z" fill="var(--orange-2)"/>
+          <path d="M28 46h8l-2 10c-1 2-3 2-4 0z" fill="var(--red)"/>
+        </svg>
+        <svg class="deco-star-1" viewBox="0 0 24 24" fill="currentColor" style="color:var(--cream)" xmlns="http://www.w3.org/2000/svg"><path d="M12 0l2.6 8.4L23 11l-8.4 2.6L12 22l-2.6-8.4L1 11l8.4-2.6z"/></svg>
+        <svg class="deco-star-2" viewBox="0 0 24 24" fill="currentColor" style="color:var(--orange-1)" xmlns="http://www.w3.org/2000/svg"><path d="M12 0l2.6 8.4L23 11l-8.4 2.6L12 22l-2.6-8.4L1 11l8.4-2.6z"/></svg>
+        <svg class="deco-bolt" viewBox="0 0 24 24" fill="currentColor" style="color:var(--orange-1)" xmlns="http://www.w3.org/2000/svg"><path d="M13 0L3 14h7l-2 10 12-16h-8z"/></svg>
+      </div>
+
+      <span class="kicker">Registration</span>
+      <h1 class="wordmark">Afro Indie<br />Founder</h1>
+      <p class="tagline">A 3-Day Hands-On Experiment</p>
+
+      <span class="theme-pill">Themed: <b>Now That You Can Build</b></span>
+
+      <div class="facts">
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>
+          <span><b>Fri–Sun, Sept 18–20, 2026</b></span>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 10l5-3v10l-5-3M3 6h9a2 2 0 012 2v8a2 2 0 01-2 2H3z"/></svg>
+          <span>Virtual · <b>Google Meet</b></span>
+        </div>
+        <div class="fact">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4 4v2M9 11a4 4 0 100-8 4 4 0 000 8zM22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+          <span><b>44 slots</b> only</span>
+        </div>
+      </div>
+
+      <p class="proof-note">
+        <svg viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+        Proof you've tried building something before is your ticket in.
+      </p>
+    </section>
+
+    <!-- Form panel -->
+    <section class="form-wrap">
+      <div class="form-card" id="formCard">
+        <div class="form-head">
+          <h1>Save your <span>seat</span></h1>
+          <p>Takes two minutes. Only 44 spots available.</p>
+        </div>
+
+        <form id="regForm" novalidate>
+          <!-- honeypot -->
+          <div class="hp" aria-hidden="true">
+            <label for="website">Website</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="row2">
+            <div class="field">
+              <label for="name">Full name <span class="req">*</span></label>
+              <input type="text" id="name" name="name" autocomplete="name" placeholder="Ada Lovelace" required />
+            </div>
+            <div class="field">
+              <label for="email">Email <span class="req">*</span></label>
+              <input type="email" id="email" name="email" autocomplete="email" placeholder="ada@email.com" required />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="socials">Social handle(s) <span class="opt">optional — X, IG, LinkedIn…</span></label>
+            <input type="text" id="socials" name="socials" placeholder="@yourhandle" />
+          </div>
+
+          <div class="field">
+            <label for="building">What have you built, or are currently building? <span class="req">*</span></label>
+            <textarea id="building" name="building" placeholder="A weekend project, an MVP, a side hustle — anything counts." required></textarea>
+          </div>
+
+          <div class="field">
+            <label>Topics you're most interested in <span class="opt">optional</span></label>
+            <div class="chip-grid" role="group" aria-label="Topics of interest">
+              <label class="chip">
+                <input type="checkbox" name="topics" value="Ideation & Refining Ideas" />
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="txt">Ideation & Refining Ideas</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="topics" value="Building & Launching Fast" />
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="txt">Building & Launching Fast</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="topics" value="Growth: 0 to 500 Users" />
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="txt">Growth: 0 to 500 Users</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="topics" value="Business Models & Unit Economics" />
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="txt">Business Models & Unit Economics</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="topics" value="Fundraising (Preseed & Seed)" />
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="txt">Fundraising (Preseed & Seed)</span>
+              </label>
+              <label class="chip">
+                <input type="checkbox" name="topics" value="Burn Rate, Runway & Profitability" />
+                <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span>
+                <span class="txt">Burn Rate, Runway & Profitability</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Interested in a community of actual AI builders? <span class="req">*</span></label>
+            <div class="yesno" role="radiogroup" aria-label="Interested in a community of actual AI builders?">
+              <label class="yn-opt yes">
+                <input type="radio" name="community" value="Yes" required />
+                Yes!!
+              </label>
+              <label class="yn-opt no">
+                <input type="radio" name="community" value="No" />
+                Not right now
+              </label>
+            </div>
+          </div>
+
+          <div class="submit-row">
+            <button type="submit" class="submit-btn" id="submitBtn">
+              <span id="submitLabel">Claim my spot</span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="microcopy">We'll email your confirmation and Google Meet link before Sept 18.</p>
+          </div>
+        </form>
+      </div>
+
+      <div class="success" id="successView">
+        <div class="success-badge">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h2>You're <span>in!</span></h2>
+        <p>Thanks for registering for AfroIndie Founder. Keep an eye on your inbox — we'll send your Google Meet link and a short pre-event note before Sept 18–20, 2026.</p>
+        <button type="button" class="again" id="againBtn">Register another person</button>
+      </div>
+    </section>
+  </div>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none" title="submission target"></iframe>
+
+  <script>
+    (function () {
+      // ---------------------------------------------------------------
+      // Google Form wiring — REPLACE THESE once you have the form's
+      // "Get pre-filled link". actionUrl is the /formResponse endpoint
+      // for that same form (same form ID, swap /viewform for /formResponse).
+      // Each entries.* value is the entry.NNNNNNNN param for that field,
+      // read off the pre-filled link's query string.
+      // ---------------------------------------------------------------
+      var CONFIG = {
+        actionUrl: "https://docs.google.com/forms/d/e/REPLACE_WITH_FORM_ID/formResponse",
+        entries: {
+          name: "entry.REPLACE_NAME",
+          email: "entry.REPLACE_EMAIL",
+          socials: "entry.REPLACE_SOCIALS",
+          building: "entry.REPLACE_BUILDING",
+          topics: "entry.REPLACE_TOPICS",
+          community: "entry.REPLACE_COMMUNITY"
+        }
+      };
+
+      var form = document.getElementById("regForm");
+      var formCard = document.getElementById("formCard");
+      var successView = document.getElementById("successView");
+      var againBtn = document.getElementById("againBtn");
+      var submitBtn = document.getElementById("submitBtn");
+      var submitLabel = document.getElementById("submitLabel");
+
+      function addField(target, name, value) {
+        var input = document.createElement("input");
+        input.type = "hidden";
+        input.name = name;
+        input.value = value;
+        target.appendChild(input);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Honeypot: if this hidden field got filled, it's a bot — drop silently.
+        if (form.elements["website"].value.trim() !== "") {
+          return;
+        }
+
+        if (!form.checkValidity()) {
+          form.reportValidity();
+          return;
+        }
+
+        var topics = Array.prototype.slice
+          .call(form.querySelectorAll('input[name="topics"]:checked'))
+          .map(function (el) { return el.value; });
+
+        submitBtn.disabled = true;
+        submitLabel.textContent = "Submitting…";
+
+        var hiddenForm = document.createElement("form");
+        hiddenForm.action = CONFIG.actionUrl;
+        hiddenForm.method = "POST";
+        hiddenForm.target = "hidden_iframe";
+        hiddenForm.style.display = "none";
+
+        addField(hiddenForm, CONFIG.entries.name, form.elements["name"].value.trim());
+        addField(hiddenForm, CONFIG.entries.email, form.elements["email"].value.trim());
+        addField(hiddenForm, CONFIG.entries.socials, form.elements["socials"].value.trim());
+        addField(hiddenForm, CONFIG.entries.building, form.elements["building"].value.trim());
+        topics.forEach(function (t) { addField(hiddenForm, CONFIG.entries.topics, t); });
+        addField(hiddenForm, CONFIG.entries.community, form.elements["community"].value);
+
+        document.body.appendChild(hiddenForm);
+        hiddenForm.submit();
+        hiddenForm.remove();
+
+        setTimeout(function () {
+          formCard.classList.add("is-hidden");
+          successView.classList.add("is-visible");
+        }, 500);
+      });
+
+      againBtn.addEventListener("click", function () {
+        form.reset();
+        submitBtn.disabled = false;
+        submitLabel.textContent = "Claim my spot";
+        successView.classList.remove("is-visible");
+        formCard.classList.remove("is-hidden");
+      });
+    })();
+  </script>
+</body>
+</html>
